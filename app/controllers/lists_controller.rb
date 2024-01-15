@@ -16,6 +16,12 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
+
+    if @list.save
+      redirect_to @list, notice: "New list was successfully created!"
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -38,6 +44,6 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:title, :overview, :poster_url, :rating)
+    params.require(:list).permit(:name)
   end
 end
