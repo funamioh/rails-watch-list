@@ -1,3 +1,7 @@
-<h1>Hello world it's <%= @list.name %> page</h1>
+<h1><%= @list.name %> page</h1>
 
-<%= link_to 'Bookmark a movie', new_list_bookmark_path %>
+<% @list.bookmarks.each do |bookmark| %>
+<%= bookmark.movie.title %>
+<% end %>
+
+<%= link_to 'Bookmark a movie', new_list_bookmark_path(list_id: @list) %>
