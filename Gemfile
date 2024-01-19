@@ -77,4 +77,6 @@ gem "simple_form"
 
 gem "sassc-rails" # Uncomment this line
 
- gem "dotenv-rails"
+gem "dotenv-rails"
+
+gem "cloudinary"
